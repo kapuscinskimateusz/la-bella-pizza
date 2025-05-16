@@ -1,4 +1,5 @@
 import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router'
+import Button from './Button'
 
 function ErrorPage() {
     const error = useRouteError()
@@ -22,7 +23,7 @@ function ErrorPage() {
             <h1>Something went wrong</h1>
             <p>{errorMessage}</p>
 
-            <button onClick={() => navigate(-1)}>&larr; Go back</button>
+            <Button onClick={() => navigate(-1)}>&larr; Go back</Button>
         </div>
     )
 }
