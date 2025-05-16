@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import AppLayout from './ui/AppLayout'
 import ErrorPage from './ui/ErrorPage'
 
+import Home from './ui/Home'
+
 const router = createBrowserRouter([
     {
         element: <AppLayout />,
@@ -10,7 +12,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <div>Hello world!</div>,
+                element: <Home />,
             },
         ],
     },
