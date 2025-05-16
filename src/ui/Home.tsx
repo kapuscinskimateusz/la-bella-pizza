@@ -7,8 +7,8 @@ function Home() {
     const username = useSelector(getUsername)
 
     return (
-        <div className="text-center">
-            <h1 className="text-xl md:text-3xl">
+        <div className="my-10 text-center sm:my-16">
+            <h1 className="mb-8 text-xl md:text-3xl">
                 👋 Welcome to{' '}
                 <strong className="text-red-700">La Bella Pizza</strong> - a
                 place where taste is art
@@ -18,7 +18,7 @@ function Home() {
                 <CreateUser />
             ) : (
                 <>
-                    <p className="text-stone-400">
+                    <p className="mb-8 text-stone-400">
                         Hello,{' '}
                         <span className="text-stone-200">{username}</span>!
                         Welcome to our Italian kitchen, where every pizza tells

@@ -22,7 +22,7 @@ function CreateUser() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <p className="text-stone-400">
+            <p className="mb-4 text-stone-400">
                 Before we invite you to our menu full of Italian inspiration...
                 What is your name?
             </p>
@@ -30,6 +30,7 @@ function CreateUser() {
             <Input
                 type="text"
                 placeholder="Your full name"
+                className="mb-8 w-72"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
