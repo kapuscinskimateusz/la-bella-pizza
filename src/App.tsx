@@ -1,9 +1,23 @@
+import { createBrowserRouter, RouterProvider } from 'react-router'
+
+import AppLayout from './ui/AppLayout'
+import ErrorPage from './ui/ErrorPage'
+
+const router = createBrowserRouter([
+    {
+        element: <AppLayout />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: '/',
+                element: <div>Hello world!</div>,
+            },
+        ],
+    },
+])
+
 function App() {
-    return (
-        <>
-            <h1 className="bg-red-300 text-3xl text-red-500">App</h1>
-        </>
-    )
+    return <RouterProvider router={router} />
 }
 
 export default App
