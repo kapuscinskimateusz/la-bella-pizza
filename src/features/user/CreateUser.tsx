@@ -16,8 +16,6 @@ function CreateUser() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <p>What is your name?</p>
-
             <Input
                 type="text"
                 placeholder="Your full name"
