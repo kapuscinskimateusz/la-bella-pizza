@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router'
 
 import Button from '../../ui/Button'
+import Input from '../../ui/Input'
 
 function CreateUser() {
     const [username, setUsername] = useState('')
@@ -17,14 +18,18 @@ function CreateUser() {
         <form onSubmit={handleSubmit}>
             <p>What is your name?</p>
 
-            <input
+            <Input
                 type="text"
                 placeholder="Your full name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
 
-            {username !== '' && <Button>Start ordering</Button>}
+            {username !== '' && (
+                <div>
+                    <Button>Start ordering</Button>
+                </div>
+            )}
         </form>
     )
 }
