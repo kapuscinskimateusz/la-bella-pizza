@@ -10,7 +10,7 @@ function Menu() {
     const menu = useLoaderData<MenuItemType[]>()
 
     return (
-        <ul className="divide-y divide-stone-700">
+        <ul className="divide-y divide-stone-700 py-1">
             {menu.map((item) => (
                 <MenuItem key={item.id} item={item} />
             ))}

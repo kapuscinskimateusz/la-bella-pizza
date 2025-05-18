@@ -15,7 +15,7 @@ function MenuItem({ item }: MenuItemProps) {
                 alt={name}
                 className={`aspect-square h-24 object-cover ${soldOut ? 'opacity-70 grayscale' : ''}`}
             />
-            <div className="flex flex-grow flex-col">
+            <div className="flex flex-grow flex-col pt-0.5">
                 <p className="font-medium">{name}</p>
                 <p className="text-sm capitalize italic text-stone-400">
                     {ingredients.join(', ')}
@@ -27,7 +27,7 @@ function MenuItem({ item }: MenuItemProps) {
                             from {sizes.small.toFixed(2)}{' '}
                         </p>
                     ) : (
-                        <p className="text-sm uppercase text-stone-400">
+                        <p className="text-sm font-medium uppercase text-stone-400">
                             Sold out
                         </p>
                     )}

@@ -1,17 +1,23 @@
-import { Outlet } from 'react-router'
+import { Outlet, useNavigation } from 'react-router'
 
 import Header from './Header'
+import Loader from './Loader'
 
 function AppLayout() {
+    const navigation = useNavigation()
+    const isLoading = navigation.state === 'loading'
+
     return (
         <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
+            {isLoading && <Loader />}
+
             <Header />
 
-            <main className="mx-auto max-w-3xl">
-                <Outlet />
-            </main>
-
-            <footer>Footer</footer>
+            <div className="overflow-y-scroll">
+                <main className="mx-auto max-w-3xl">
+                    <Outlet />
+                </main>
+            </div>
         </div>
     )
 }

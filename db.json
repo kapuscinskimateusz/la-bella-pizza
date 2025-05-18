@@ -3,98 +3,148 @@
         {
             "id": 1,
             "name": "Margherita",
-            "description": "Classic Italian pizza with tomato sauce, mozzarella, and fresh basil.",
-            "ingredients": ["tomato sauce", "mozzarella", "basil"],
+            "description": "A classic Neapolitan pizza with tomato sauce, mozzarella, and fresh basil.",
+            "ingredients": ["tomato sauce", "mozzarella", "basil", "olive oil"],
             "sizes": {
-                "small": 22,
-                "medium": 28,
-                "large": 34
+                "small": 6.99,
+                "medium": 8.99,
+                "large": 10.99
             },
-            "image": "/img/margherita.jpg",
+            "image": "img/margherita.jpg",
             "soldOut": false
         },
         {
             "id": 2,
             "name": "Pepperoni",
-            "description": "Spicy pepperoni slices and double mozzarella cheese.",
+            "description": "A favorite topped with spicy pepperoni and mozzarella cheese.",
             "ingredients": ["tomato sauce", "mozzarella", "pepperoni"],
             "sizes": {
-                "small": 25,
-                "medium": 32,
-                "large": 38
+                "small": 7.99,
+                "medium": 9.99,
+                "large": 11.99
             },
-            "image": "/img/pepperoni.jpg",
+            "image": "img/pepperoni.jpg",
             "soldOut": false
         },
         {
             "id": 3,
             "name": "Quattro Formaggi",
-            "description": "Four cheese blend: mozzarella, gorgonzola, parmesan, and fontina.",
+            "description": "A rich and creamy blend of four cheeses.",
             "ingredients": ["mozzarella", "gorgonzola", "parmesan", "fontina"],
             "sizes": {
-                "small": 28,
-                "medium": 36,
-                "large": 42
+                "small": 8.49,
+                "medium": 10.49,
+                "large": 12.49
             },
-            "image": "/img/quattro-formaggi.jpg",
+            "image": "img/quattro-formaggi.jpg",
             "soldOut": false
         },
         {
             "id": 4,
-            "name": "Capricciosa",
-            "description": "Ham, mushrooms, artichokes, and black olives – a true Italian classic.",
+            "name": "Vegetariana",
+            "description": "A garden-fresh mix of seasonal vegetables.",
             "ingredients": [
                 "tomato sauce",
                 "mozzarella",
-                "ham",
-                "mushrooms",
-                "artichokes",
-                "black olives"
+                "zucchini",
+                "bell peppers",
+                "onions",
+                "olives"
             ],
             "sizes": {
-                "small": 27,
-                "medium": 35,
-                "large": 41
+                "small": 7.49,
+                "medium": 9.49,
+                "large": 11.49
             },
-            "image": "/img/capricciosa.jpg",
-            "soldOut": true
+            "image": "img/vegetariana.jpg",
+            "soldOut": false
         },
         {
             "id": 5,
+            "name": "Prosciutto e Funghi",
+            "description": "Delicious combination of Italian ham and mushrooms.",
+            "ingredients": [
+                "tomato sauce",
+                "mozzarella",
+                "prosciutto",
+                "mushrooms"
+            ],
+            "sizes": {
+                "small": 8.99,
+                "medium": 10.99,
+                "large": 12.99
+            },
+            "image": "img/prosciutto-e-funghi.jpg",
+            "soldOut": true
+        },
+        {
+            "id": 6,
             "name": "Diavola",
-            "description": "Hot and spicy with salami piccante and red chili peppers.",
+            "description": "Spicy Italian salami with a fiery kick of chili oil.",
             "ingredients": [
                 "tomato sauce",
                 "mozzarella",
                 "spicy salami",
-                "chili peppers"
+                "chili oil"
             ],
             "sizes": {
-                "small": 26,
-                "medium": 34,
-                "large": 40
+                "small": 8.49,
+                "medium": 10.49,
+                "large": 12.49
             },
-            "image": "/img/diavola.jpg",
+            "image": "img/diavola.jpg",
             "soldOut": false
         },
         {
-            "id": 6,
-            "name": "Vegetariana",
-            "description": "Colorful and fresh with a mix of seasonal vegetables.",
+            "id": 7,
+            "name": "Capricciosa",
+            "description": "A traditional Italian pizza with artichokes, ham, mushrooms, and olives.",
             "ingredients": [
                 "tomato sauce",
                 "mozzarella",
-                "bell peppers",
-                "zucchini",
-                "eggplant",
+                "ham",
+                "artichokes",
+                "mushrooms",
                 "olives"
             ],
             "sizes": {
-                "small": 24,
-                "medium": 30,
-                "large": 36
+                "small": 8.99,
+                "medium": 10.99,
+                "large": 13.49
             },
-            "image": "/img/vegetariana.jpg",
+            "image": "img/capricciosa.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 8,
+            "name": "Bufalina",
+            "description": "Elegant and simple with buffalo mozzarella and cherry tomatoes.",
+            "ingredients": [
+                "tomato sauce",
+                "buffalo mozzarella",
+                "cherry tomatoes",
+                "basil",
+                "olive oil"
+            ],
+            "sizes": {
+                "small": 9.49,
+                "medium": 11.49,
+                "large": 13.49
+            },
+            "image": "img/bufalina.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 9,
+            "name": "Hawaiian",
+            "description": "A tropical mix of ham and pineapple on a cheesy tomato base.",
+            "ingredients": ["tomato sauce", "mozzarella", "ham", "pineapple"],
+            "sizes": {
+                "small": 8.49,
+                "medium": 10.49,
+                "large": 12.49
+            },
+            "image": "img/hawaiian.jpg",
             "soldOut": false
         }
     ]
