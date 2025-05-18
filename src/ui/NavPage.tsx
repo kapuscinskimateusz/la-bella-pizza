@@ -3,6 +3,7 @@ import { NavLink } from 'react-router'
 const routes = [
     { path: '/', name: 'Home' },
     { path: '/menu', name: 'Menu' },
+    { path: '/about', name: 'About' },
 ]
 
 function NavPage() {
@@ -11,7 +12,7 @@ function NavPage() {
 
     return (
         <nav>
-            <ul className="flex items-center gap-x-4">
+            <ul className="flex items-center gap-x-6">
                 {routes.map((route) => (
                     <li key={route.path}>
                         <NavLink

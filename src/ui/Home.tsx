@@ -27,7 +27,7 @@ function Home() {
                         It's time to discover something delicious...
                     </p>
 
-                    <Button to="/menu">Go to menu</Button>
+                    <Button to="/menu">Go to menu &rarr;</Button>
                 </>
             )}
         </div>

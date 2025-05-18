@@ -1,12 +1,29 @@
+import { useDispatch } from 'react-redux'
+
 import type { MenuItem as MenuItemType } from '../../services/apiRestaurant'
 import Button from '../../ui/Button'
+import { addItem } from '../cart/cartSlice'
 
 interface MenuItemProps {
     item: MenuItemType
 }
 
 function MenuItem({ item }: MenuItemProps) {
-    const { name, soldOut, ingredients, sizes } = item
+    const dispatch = useDispatch()
+
+    const { id, name, soldOut, ingredients, sizes } = item
+
+    function handleAddToCart() {
+        const newItem = {
+            id,
+            name,
+            quantity: 1,
+            unitPrice: sizes.small,
+            totalPrice: sizes.small * 1,
+        }
+
+        dispatch(addItem(newItem))
+    }
 
     return (
         <li className="flex gap-4 py-2">
@@ -32,7 +49,11 @@ function MenuItem({ item }: MenuItemProps) {
                         </p>
                     )}
 
-                    {!soldOut && <Button size="small">Add to cart</Button>}
+                    {!soldOut && (
+                        <Button size="small" onClick={handleAddToCart}>
+                            Add to cart
+                        </Button>
+                    )}
                 </div>
             </div>
         </li>
