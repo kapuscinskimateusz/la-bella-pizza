@@ -1,0 +1,101 @@
+{
+    "menu": [
+        {
+            "id": 1,
+            "name": "Margherita",
+            "description": "Classic Italian pizza with tomato sauce, mozzarella, and fresh basil.",
+            "ingredients": ["tomato sauce", "mozzarella", "basil"],
+            "sizes": {
+                "small": 22,
+                "medium": 28,
+                "large": 34
+            },
+            "image": "/img/margherita.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 2,
+            "name": "Pepperoni",
+            "description": "Spicy pepperoni slices and double mozzarella cheese.",
+            "ingredients": ["tomato sauce", "mozzarella", "pepperoni"],
+            "sizes": {
+                "small": 25,
+                "medium": 32,
+                "large": 38
+            },
+            "image": "/img/pepperoni.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 3,
+            "name": "Quattro Formaggi",
+            "description": "Four cheese blend: mozzarella, gorgonzola, parmesan, and fontina.",
+            "ingredients": ["mozzarella", "gorgonzola", "parmesan", "fontina"],
+            "sizes": {
+                "small": 28,
+                "medium": 36,
+                "large": 42
+            },
+            "image": "/img/quattro-formaggi.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 4,
+            "name": "Capricciosa",
+            "description": "Ham, mushrooms, artichokes, and black olives – a true Italian classic.",
+            "ingredients": [
+                "tomato sauce",
+                "mozzarella",
+                "ham",
+                "mushrooms",
+                "artichokes",
+                "black olives"
+            ],
+            "sizes": {
+                "small": 27,
+                "medium": 35,
+                "large": 41
+            },
+            "image": "/img/capricciosa.jpg",
+            "soldOut": true
+        },
+        {
+            "id": 5,
+            "name": "Diavola",
+            "description": "Hot and spicy with salami piccante and red chili peppers.",
+            "ingredients": [
+                "tomato sauce",
+                "mozzarella",
+                "spicy salami",
+                "chili peppers"
+            ],
+            "sizes": {
+                "small": 26,
+                "medium": 34,
+                "large": 40
+            },
+            "image": "/img/diavola.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 6,
+            "name": "Vegetariana",
+            "description": "Colorful and fresh with a mix of seasonal vegetables.",
+            "ingredients": [
+                "tomato sauce",
+                "mozzarella",
+                "bell peppers",
+                "zucchini",
+                "eggplant",
+                "olives"
+            ],
+            "sizes": {
+                "small": 24,
+                "medium": 30,
+                "large": 36
+            },
+            "image": "/img/vegetariana.jpg",
+            "soldOut": false
+        }
+    ]
+}

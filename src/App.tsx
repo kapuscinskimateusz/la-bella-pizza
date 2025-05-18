@@ -4,7 +4,7 @@ import AppLayout from './ui/AppLayout'
 import ErrorPage from './ui/ErrorPage'
 
 import Home from './ui/Home'
-import Menu from './features/menu/Menu'
+import Menu, { loader as menuLoader } from './features/menu/Menu'
 
 const router = createBrowserRouter([
     {
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
             {
                 path: '/menu',
                 element: <Menu />,
+                loader: menuLoader,
             },
         ],
     },

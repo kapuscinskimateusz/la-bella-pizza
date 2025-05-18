@@ -7,7 +7,7 @@ const routes = [
 
 function NavPage() {
     const activeClasses =
-        'relative before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-700'
+        'relative before:absolute before:-inset-1 before:block before:-skew-y-3 before:rounded-sm before:bg-red-700'
 
     return (
         <nav>
