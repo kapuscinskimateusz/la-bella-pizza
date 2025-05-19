@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { useSelector } from 'react-redux'
 
-import NavPage from './NavPage'
+import AppNav from './AppNav'
 import { getUsername } from '../features/user/userSlice'
 
 function Header() {
@@ -14,7 +14,7 @@ function Header() {
             </Link>
 
             <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <NavPage />
+                <AppNav />
             </span>
 
             {username !== '' && <p>Hello, {username}</p>}

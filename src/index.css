@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    .overlay {
+        @apply fixed inset-0 z-50 bg-black/10 backdrop-blur-sm;
+    }
+
     /* https://css-loaders.com/hungry/ */
     .loader {
         width: 80px;

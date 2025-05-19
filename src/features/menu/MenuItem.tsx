@@ -1,29 +1,14 @@
-import { useDispatch } from 'react-redux'
-
-import type { MenuItem as MenuItemType } from '../../services/apiRestaurant'
+import type { MenuItem as MenuItemType } from '../../types'
 import Button from '../../ui/Button'
-import { addItem } from '../cart/cartSlice'
+import Modal from '../../ui/Modal'
+import { formatCurrency } from '../../utils/helpers'
 
 interface MenuItemProps {
     item: MenuItemType
 }
 
 function MenuItem({ item }: MenuItemProps) {
-    const dispatch = useDispatch()
-
-    const { id, name, soldOut, ingredients, sizes } = item
-
-    function handleAddToCart() {
-        const newItem = {
-            id,
-            name,
-            quantity: 1,
-            unitPrice: sizes.small,
-            totalPrice: sizes.small * 1,
-        }
-
-        dispatch(addItem(newItem))
-    }
+    const { name, soldOut, ingredients, sizes } = item
 
     return (
         <li className="flex gap-4 py-2">
@@ -41,7 +26,7 @@ function MenuItem({ item }: MenuItemProps) {
                 <div className="mt-auto flex items-center justify-between">
                     {!soldOut ? (
                         <p className="text-sm">
-                            from {sizes.small.toFixed(2)}{' '}
+                            from {formatCurrency(sizes.small)}
                         </p>
                     ) : (
                         <p className="text-sm font-medium uppercase text-stone-400">
@@ -50,9 +35,12 @@ function MenuItem({ item }: MenuItemProps) {
                     )}
 
                     {!soldOut && (
-                        <Button size="small" onClick={handleAddToCart}>
-                            Add to cart
-                        </Button>
+                        <Modal>
+                            <Modal.Open opens="add">
+                                <Button>Add to cart</Button>
+                            </Modal.Open>
+                            <Modal.Window name="add">Test</Modal.Window>
+                        </Modal>
                     )}
                 </div>
             </div>

@@ -6,7 +6,7 @@ const routes = [
     { path: '/about', name: 'About' },
 ]
 
-function NavPage() {
+function AppNav() {
     const activeClasses =
         'relative before:absolute before:-inset-1 before:block before:-skew-y-3 before:rounded-sm before:bg-red-700'
 
@@ -30,4 +30,4 @@ function NavPage() {
     )
 }
 
-export default NavPage
+export default AppNav

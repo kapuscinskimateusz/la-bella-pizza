@@ -1,3 +1,5 @@
+import type { MenuItem } from '../types'
+
 const API_URL = 'http://localhost:3000'
 
 export async function getMenu() {
@@ -6,18 +8,4 @@ export async function getMenu() {
 
     const data: MenuItem[] = await res.json()
     return data
-}
-
-export interface MenuItem {
-    id: number
-    name: string
-    description: string
-    ingredients: string[]
-    sizes: {
-        small: number
-        medium: number
-        large: number
-    }
-    image: string
-    soldOut: boolean
 }
