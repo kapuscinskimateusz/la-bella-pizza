@@ -8,6 +8,7 @@ import {
     type ButtonHTMLAttributes,
 } from 'react'
 import { createPortal } from 'react-dom'
+import { useOutsideClick } from '../hooks/useOutsideClick'
 
 interface ContextDefaultValue {
     openName: string
@@ -51,11 +52,15 @@ function Window({ children, name }: WindowProps) {
     const ctx = useContext(ModalContext)
     if (!ctx) throw new Error('Modal.Window was used outside of the Modal')
 
+    const ref = useOutsideClick(ctx.close)
+
     if (name !== ctx.openName) return null
 
     return createPortal(
         <div className="overlay flex items-center justify-center">
-            <div className="bg-stone-700">{children}</div>
+            <div ref={ref} className="bg-stone-700">
+                {children}
+            </div>
         </div>,
         document.body
     )
