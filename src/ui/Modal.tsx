@@ -9,6 +9,8 @@ import {
     Children,
 } from 'react'
 import { createPortal } from 'react-dom'
+import { X } from 'lucide-react'
+
 import { useOutsideClick } from '../hooks/useOutsideClick'
 
 interface ContextDefaultValue {
@@ -68,7 +70,7 @@ function Window({ children, name }: WindowProps) {
                 <header className="flex items-center px-4 py-4 sm:px-6">
                     {header}
                     <button onClick={ctx.close} className="ml-auto">
-                        ❌
+                        <X />
                     </button>
                 </header>
 

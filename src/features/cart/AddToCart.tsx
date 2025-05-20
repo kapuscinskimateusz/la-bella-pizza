@@ -1,5 +1,9 @@
+import { Minus, Plus } from 'lucide-react'
+import { useState } from 'react'
+
 import type { MenuItem } from '../../types'
 import Button from '../../ui/Button'
+import Counter from '../../ui/Counter'
 import Modal from '../../ui/Modal'
 
 interface AddToCartProps {
@@ -8,6 +12,8 @@ interface AddToCartProps {
 
 function AddToCart({ item }: AddToCartProps) {
     const { name, ingredients, description } = item
+
+    const [quantity, setQuantity] = useState(1)
 
     return (
         <Modal>
@@ -29,7 +35,15 @@ function AddToCart({ item }: AddToCartProps) {
 
                 <Modal.Footer>
                     <div className="flex items-center justify-between">
-                        <span>Quantity</span>
+                        <Counter
+                            count={quantity}
+                            min={1}
+                            setCount={setQuantity}
+                        >
+                            <Counter.Decrease icon={<Minus />} />
+                            <Counter.Count />
+                            <Counter.Increase icon={<Plus />} />
+                        </Counter>
 
                         <Button>Add to cart</Button>
                     </div>

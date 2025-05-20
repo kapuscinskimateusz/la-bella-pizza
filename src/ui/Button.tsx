@@ -5,6 +5,7 @@ interface ButtonProps {
     children: ReactNode
     variant?: 'primary' | 'secondary'
     size?: 'small' | 'medium'
+    round?: boolean
     to?: string
     onClick?: () => void
 }
@@ -14,22 +15,23 @@ const variants = {
     secondary: '',
 }
 
-const sizes = {
-    small: 'px-4 py-2 text-xs md:px-5 md:py-2.5',
-    medium: 'px-4 py-3 text-sm md:px-6 md:py-4',
-}
-
 function Button({
     children,
     variant = 'primary',
     size = 'medium',
+    round,
     to,
     onClick = () => {},
 }: ButtonProps) {
     const navigate = useNavigate()
 
+    const sizes = {
+        small: `text-xs ${round ? 'aspect-square h-8 md:h-9' : 'h-8 px-4 md:h-9 md:px-5'}`,
+        medium: `text-sm ${round ? 'aspect-square h-11 md:h-[52px]' : 'h-11 px-4 text-sm md:h-[52px] md:px-6'}`,
+    }
+
     const classes = [
-        'cursor-pointer rounded-full font-semibold uppercase tracking-wide outline-none transition-colors duration-300 focus:ring focus:ring-offset-2 focus:ring-offset-stone-800',
+        'inline-flex cursor-pointer items-center justify-center rounded-full font-semibold uppercase tracking-wide outline-none transition-colors duration-300 focus:ring focus:ring-offset-2 focus:ring-offset-stone-800',
         variants[variant],
         sizes[size],
     ].join(' ')
