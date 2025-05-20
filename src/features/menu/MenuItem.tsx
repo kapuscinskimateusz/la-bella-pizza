@@ -1,7 +1,6 @@
 import type { MenuItem as MenuItemType } from '../../types'
-import Button from '../../ui/Button'
-import Modal from '../../ui/Modal'
 import { formatCurrency } from '../../utils/helpers'
+import AddToCart from '../cart/AddToCart'
 
 interface MenuItemProps {
     item: MenuItemType
@@ -34,14 +33,7 @@ function MenuItem({ item }: MenuItemProps) {
                         </p>
                     )}
 
-                    {!soldOut && (
-                        <Modal>
-                            <Modal.Open opens="add">
-                                <Button>Add to cart</Button>
-                            </Modal.Open>
-                            <Modal.Window name="add">Test</Modal.Window>
-                        </Modal>
-                    )}
+                    {!soldOut && <AddToCart item={item} />}
                 </div>
             </div>
         </li>

@@ -6,6 +6,7 @@ import {
     cloneElement,
     type ReactElement,
     type ButtonHTMLAttributes,
+    Children,
 } from 'react'
 import { createPortal } from 'react-dom'
 import { useOutsideClick } from '../hooks/useOutsideClick'
@@ -56,10 +57,26 @@ function Window({ children, name }: WindowProps) {
 
     if (name !== ctx.openName) return null
 
+    const allChildren = Children.toArray(children)
+    const header = allChildren.find((child: any) => child.type === Modal.Header)
+    const body = allChildren.find((child: any) => child.type === Modal.Body)
+    const footer = allChildren.find((child: any) => child.type === Modal.Footer)
+
     return createPortal(
         <div className="overlay flex items-center justify-center">
-            <div ref={ref} className="bg-stone-700">
-                {children}
+            <div ref={ref} className="max-w-md bg-stone-700">
+                <header className="flex items-center px-4 py-4 sm:px-6">
+                    {header}
+                    <button onClick={ctx.close} className="ml-auto">
+                        ❌
+                    </button>
+                </header>
+
+                {body && <div className="px-4 py-4 sm:px-6">{body}</div>}
+
+                {footer && (
+                    <footer className="px-4 py-4 sm:px-6">{footer}</footer>
+                )}
             </div>
         </div>,
         document.body
@@ -68,5 +85,8 @@ function Window({ children, name }: WindowProps) {
 
 Modal.Open = Open
 Modal.Window = Window
+Modal.Header = ({ children }: { children: ReactNode }) => <>{children}</>
+Modal.Body = ({ children }: { children: ReactNode }) => <>{children}</>
+Modal.Footer = ({ children }: { children: ReactNode }) => <>{children}</>
 
 export default Modal
