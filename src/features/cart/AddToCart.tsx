@@ -30,8 +30,6 @@ function AddToCart({ item }: AddToCartProps) {
         dispatch(addItem(newItem))
     }
 
-    return <Modal.Close />
-
     return (
         <Modal>
             <Modal.Open opens="add">
