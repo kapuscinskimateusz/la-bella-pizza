@@ -19,16 +19,6 @@ interface ContextDefaultValue {
     open: (windowName: string) => void
 }
 
-interface OpenProps {
-    children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>
-    opens: string
-}
-
-interface WindowProps {
-    children: ReactNode
-    name: string
-}
-
 const ModalContext = createContext<ContextDefaultValue | null>(null)
 
 function Modal({ children }: { children: ReactNode }) {
@@ -44,20 +34,51 @@ function Modal({ children }: { children: ReactNode }) {
     )
 }
 
-function Open({ children, opens: opensWindowName }: OpenProps) {
-    const ctx = useContext(ModalContext)
-    if (!ctx) throw new Error('Modal.Open was used outside of the Modal')
+function useModal(componentName = 'A Modal subcomponent') {
+    const context = useContext(ModalContext)
+    if (context === null)
+        throw new Error(`${componentName} must be used within <Modal>`)
 
-    return cloneElement(children, { onClick: () => ctx.open(opensWindowName) })
+    return context
+}
+
+interface OpenProps {
+    children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>
+    opens: string
+}
+
+function Open({ children, opens: opensWindowName }: OpenProps) {
+    const { open } = useModal('Modal.Open')
+
+    return cloneElement(children, { onClick: () => open(opensWindowName) })
+}
+
+interface CloseProps {
+    children: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>
+    handler?: () => void
+}
+
+function Close({ children, handler }: CloseProps) {
+    const { close } = useModal('Modal.Close')
+
+    function handleClick() {
+        handler?.()
+        close()
+    }
+
+    return cloneElement(children, { onClick: handleClick })
+}
+
+interface WindowProps {
+    children: ReactNode
+    name: string
 }
 
 function Window({ children, name }: WindowProps) {
-    const ctx = useContext(ModalContext)
-    if (!ctx) throw new Error('Modal.Window was used outside of the Modal')
+    const { openName, close } = useModal('Modal.Window')
+    const ref = useOutsideClick(close)
 
-    const ref = useOutsideClick(ctx.close)
-
-    if (name !== ctx.openName) return null
+    if (name !== openName) return null
 
     const allChildren = Children.toArray(children)
     const header = allChildren.find((child: any) => child.type === Modal.Header)
@@ -69,7 +90,7 @@ function Window({ children, name }: WindowProps) {
             <div ref={ref} className="max-w-md bg-stone-700">
                 <header className="flex items-center px-4 py-4 sm:px-6">
                     {header}
-                    <button onClick={ctx.close} className="ml-auto">
+                    <button onClick={close} className="ml-auto">
                         <X />
                     </button>
                 </header>
@@ -86,6 +107,7 @@ function Window({ children, name }: WindowProps) {
 }
 
 Modal.Open = Open
+Modal.Close = Close
 Modal.Window = Window
 Modal.Header = ({ children }: { children: ReactNode }) => <>{children}</>
 Modal.Body = ({ children }: { children: ReactNode }) => <>{children}</>

@@ -11,3 +11,11 @@ export interface MenuItem {
     image: string
     soldOut: boolean
 }
+
+export interface CartItem {
+    id: number
+    name: string
+    quantity: number
+    unitPrice: number
+    totalPrice: number
+}
