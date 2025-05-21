@@ -6,12 +6,12 @@ import {
     cloneElement,
     type ReactElement,
     type ButtonHTMLAttributes,
-    Children,
 } from 'react'
 import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 
 import { useOutsideClick } from '../hooks/useOutsideClick'
+import { findChildByType } from '../utils/helpers'
 
 interface ContextDefaultValue {
     openName: string
@@ -80,10 +80,9 @@ function Window({ children, name }: WindowProps) {
 
     if (name !== openName) return null
 
-    const allChildren = Children.toArray(children)
-    const header = allChildren.find((child: any) => child.type === Modal.Header)
-    const body = allChildren.find((child: any) => child.type === Modal.Body)
-    const footer = allChildren.find((child: any) => child.type === Modal.Footer)
+    const header = findChildByType(children, Modal.Header)
+    const body = findChildByType(children, Modal.Body)
+    const footer = findChildByType(children, Modal.Footer)
 
     return createPortal(
         <div className="overlay flex items-center justify-center">

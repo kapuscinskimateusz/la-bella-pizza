@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router'
+import CartRouteName from '../features/cart/CartRouteName'
 
 const routes = [
     { path: '/', name: 'Home' },
     { path: '/menu', name: 'Menu' },
     { path: '/about', name: 'About' },
+    { path: '/cart', name: <CartRouteName /> },
 ]
 
 function AppNav() {
