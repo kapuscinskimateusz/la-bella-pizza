@@ -1,5 +1,21 @@
+import { useSelector } from 'react-redux'
+import { getCart } from './cartSlice'
+import EmptyCart from './EmptyCart'
+import CartItem from './CartItem'
+
 function Cart() {
-    return <div>Cart</div>
+    const cart = useSelector(getCart)
+    const isEmpty = cart.length === 0
+
+    if (isEmpty) return <EmptyCart />
+
+    return (
+        <ul>
+            {cart.map((item) => (
+                <CartItem item={item} />
+            ))}
+        </ul>
+    )
 }
 
 export default Cart

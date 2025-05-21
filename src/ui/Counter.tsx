@@ -1,5 +1,6 @@
 import { createContext, type ReactNode, useContext, type Dispatch } from 'react'
 import Button from './Button'
+import type { ButtonSize, ButtonVariant } from '../types'
 
 interface ContextDefaultValue {
     count: number
@@ -28,25 +29,49 @@ function Counter({ children, count, setCount, min = 0 }: CounterProps) {
     )
 }
 
-function Decrease({ icon }: { icon: ReactNode }) {
+interface DecreaseIncreaseProps {
+    icon: ReactNode
+    variant?: ButtonVariant
+    size?: ButtonSize
+}
+
+function Decrease({
+    icon,
+    variant = 'primary',
+    size = 'medium',
+}: DecreaseIncreaseProps) {
     const ctx = useContext(CounterContext)
     if (!ctx)
         throw new Error('Counter.Decrease was used outside of the Counter')
 
     return (
-        <Button variant="secondary" round onClick={ctx.decrease}>
+        <Button
+            {...(variant ? { variant } : {})}
+            {...(size ? { size } : {})}
+            round
+            onClick={ctx.decrease}
+        >
             {icon}
         </Button>
     )
 }
 
-function Increase({ icon }: { icon: ReactNode }) {
+function Increase({
+    icon,
+    variant = 'primary',
+    size = 'medium',
+}: DecreaseIncreaseProps) {
     const ctx = useContext(CounterContext)
     if (!ctx)
         throw new Error('Counter.Increase was used outside of the Counter')
 
     return (
-        <Button variant="secondary" round onClick={ctx.increase}>
+        <Button
+            {...(variant ? { variant } : {})}
+            {...(size ? { size } : {})}
+            round
+            onClick={ctx.increase}
+        >
             {icon}
         </Button>
     )

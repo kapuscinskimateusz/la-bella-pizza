@@ -20,6 +20,8 @@ export const { addItem } = cartSlice.actions
 
 export default cartSlice.reducer
 
+export const getCart = (store: RootState) => store.cart.cart
+
 export const getTotalCartQuantity = (store: RootState) =>
     store.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
 

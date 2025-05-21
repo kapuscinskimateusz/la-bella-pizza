@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router'
+import type { ButtonVariant as Variant, ButtonSize as Size } from '../types'
 
 interface ButtonProps {
     children: ReactNode
-    variant?: 'primary' | 'secondary'
-    size?: 'small' | 'medium'
+    variant?: Variant
+    size?: Size
     round?: boolean
     to?: string
     onClick?: () => void

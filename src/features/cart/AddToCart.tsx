@@ -28,6 +28,7 @@ function AddToCart({ item }: AddToCartProps) {
         }
 
         dispatch(addItem(newItem))
+        setQuantity(1)
     }
 
     return (
@@ -56,9 +57,15 @@ function AddToCart({ item }: AddToCartProps) {
                             setCount={setQuantity}
                         >
                             <div className="flex items-center gap-x-4">
-                                <Counter.Decrease icon={<Minus size={20} />} />
+                                <Counter.Decrease
+                                    variant="secondary"
+                                    icon={<Minus size={20} />}
+                                />
                                 <Counter.Count />
-                                <Counter.Increase icon={<Plus size={20} />} />
+                                <Counter.Increase
+                                    variant="secondary"
+                                    icon={<Plus size={20} />}
+                                />
                             </div>
                         </Counter>
 

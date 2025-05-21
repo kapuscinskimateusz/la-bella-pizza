@@ -1,3 +1,7 @@
+export type ButtonVariant = 'primary' | 'secondary'
+
+export type ButtonSize = 'small' | 'medium'
+
 export interface MenuItem {
     id: number
     name: string
