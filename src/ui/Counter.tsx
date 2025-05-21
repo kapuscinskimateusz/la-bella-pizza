@@ -34,7 +34,7 @@ function Decrease({ icon }: { icon: ReactNode }) {
         throw new Error('Counter.Decrease was used outside of the Counter')
 
     return (
-        <Button round onClick={ctx.decrease}>
+        <Button variant="secondary" round onClick={ctx.decrease}>
             {icon}
         </Button>
     )
@@ -46,7 +46,7 @@ function Increase({ icon }: { icon: ReactNode }) {
         throw new Error('Counter.Increase was used outside of the Counter')
 
     return (
-        <Button round onClick={ctx.increase}>
+        <Button variant="secondary" round onClick={ctx.increase}>
             {icon}
         </Button>
     )
@@ -56,7 +56,7 @@ function Count() {
     const ctx = useContext(CounterContext)
     if (!ctx) throw new Error('Counter.Count was used outside of the Counter')
 
-    return <span>{ctx.count}</span>
+    return <span className="text-sm font-semibold">{ctx.count}</span>
 }
 
 Counter.Decrease = Decrease

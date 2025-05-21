@@ -40,9 +40,11 @@ function AddToCart({ item }: AddToCartProps) {
                             min={1}
                             setCount={setQuantity}
                         >
-                            <Counter.Decrease icon={<Minus />} />
-                            <Counter.Count />
-                            <Counter.Increase icon={<Plus />} />
+                            <div className="flex items-center gap-x-4">
+                                <Counter.Decrease icon={<Minus size={20} />} />
+                                <Counter.Count />
+                                <Counter.Increase icon={<Plus size={20} />} />
+                            </div>
                         </Counter>
 
                         <Button>Add to cart</Button>

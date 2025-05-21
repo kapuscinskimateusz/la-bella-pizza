@@ -12,7 +12,8 @@ interface ButtonProps {
 
 const variants = {
     primary: 'bg-red-600 hover:bg-red-700 focus:bg-red-700 focus:ring-red-700',
-    secondary: '',
+    secondary:
+        'border-2 border-stone-300 text-stone-400 hover:bg-stone-300 hover:text-stone-800 focus:bg-stone-300 focus:text-stone-800 focus:ring-stone-200',
 }
 
 function Button({
