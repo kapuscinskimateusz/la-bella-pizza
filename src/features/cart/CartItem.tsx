@@ -5,12 +5,13 @@ interface CartItemProps {
 }
 
 function CartItem({ item }: CartItemProps) {
-    const { name, quantity } = item
+    const { name, size, quantity } = item
 
     return (
         <li>
             <p>
-                {quantity}&times; <span className="font-medium">{name}</span>
+                {quantity}&times; <span className="font-medium">{name}</span>{' '}
+                <span className="capitalize">({size})</span>
             </p>
         </li>
     )

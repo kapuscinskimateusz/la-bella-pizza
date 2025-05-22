@@ -81,7 +81,7 @@ function Count() {
     const ctx = useContext(CounterContext)
     if (!ctx) throw new Error('Counter.Count was used outside of the Counter')
 
-    return <span className="text-sm font-semibold">{ctx.count}</span>
+    return <span>{ctx.count}</span>
 }
 
 Counter.Decrease = Decrease

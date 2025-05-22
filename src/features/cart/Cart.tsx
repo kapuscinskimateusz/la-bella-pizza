@@ -12,7 +12,7 @@ function Cart() {
     return (
         <ul>
             {cart.map((item) => (
-                <CartItem item={item} />
+                <CartItem key={item.id} item={item} />
             ))}
         </ul>
     )

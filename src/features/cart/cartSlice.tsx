@@ -13,10 +13,22 @@ const cartSlice = createSlice({
         addItem(state, action: PayloadAction<CartItem>) {
             state.cart.push(action.payload)
         },
+        increaseItemQuantity(
+            state,
+            action: PayloadAction<{ itemId: string; value: number }>
+        ) {
+            const { itemId, value } = action.payload
+
+            const item = state.cart.find((el) => el.id === itemId)
+            if (!item) return
+
+            item.quantity += value
+            item.totalPrice = item.unitPrice * item.quantity
+        },
     },
 })
 
-export const { addItem } = cartSlice.actions
+export const { addItem, increaseItemQuantity } = cartSlice.actions
 
 export default cartSlice.reducer
 
@@ -27,3 +39,6 @@ export const getTotalCartQuantity = (store: RootState) =>
 
 export const getTotalCartPrice = (store: RootState) =>
     store.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
+
+export const getCartItemById = (id: string) => (store: RootState) =>
+    store.cart.cart.find((item) => item.id === id)
