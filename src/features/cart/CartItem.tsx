@@ -1,18 +1,38 @@
+import { useDispatch } from 'react-redux'
+
 import type { CartItem as CartItemType } from '../../types'
+import Button from '../../ui/Button'
+import { formatCurrency } from '../../utils/helpers'
+import UpdateItemQuantity from './UpdateItemQuantity'
+import { deleteItem } from './cartSlice'
 
 interface CartItemProps {
     item: CartItemType
 }
 
 function CartItem({ item }: CartItemProps) {
-    const { name, size, quantity } = item
+    const { id, quantity, name, size, totalPrice } = item
+
+    const dispatch = useDispatch()
+
+    function handleDelete() {
+        dispatch(deleteItem(id))
+    }
 
     return (
-        <li>
+        <li className="flex items-center justify-between py-2">
             <p>
-                {quantity}&times; <span className="font-medium">{name}</span>{' '}
-                <span className="capitalize">({size})</span>
+                {quantity}&times; {name} ({size})
             </p>
+            <div className="flex items-center gap-x-6">
+                <p>{formatCurrency(totalPrice)}</p>
+
+                <UpdateItemQuantity itemId={id} currentQuantity={quantity} />
+
+                <Button size="small" onClick={handleDelete}>
+                    Delete
+                </Button>
+            </div>
         </li>
     )
 }

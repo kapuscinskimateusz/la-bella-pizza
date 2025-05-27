@@ -6,7 +6,7 @@ function Username() {
 
     if (!username) return null
 
-    return <p>Hello, {username}</p>
+    return <p>{username}</p>
 }
 
 export default Username

@@ -24,7 +24,7 @@ function AddToCart({ item }: AddToCartProps) {
 
     function handleAdd() {
         if (cartItem) {
-            dispatch(increaseItemQuantity({ cartItemId, value: quantity }))
+            dispatch(increaseItemQuantity({ id: cartItemId, value: quantity }))
         } else {
             const newItem: CartItem = {
                 id: cartItemId,

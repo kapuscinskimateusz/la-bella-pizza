@@ -10,15 +10,10 @@ interface SelectSizeProps {
 
 function SelectSize({ sizesObj, selectedSize, onSelect }: SelectSizeProps) {
     const sizeOptions = Object.entries(sizesObj).map(
-        ([size, price]: [string, number]) => {
-            const formattedPrice = formatCurrency(price)
-            const capitalizedSize = size.replace(size[0], size[0].toUpperCase())
-
-            return {
-                value: size,
-                label: `${capitalizedSize} (${formattedPrice})`,
-            }
-        }
+        ([size, price]: [string, number]) => ({
+            value: size,
+            label: `${size} (${formatCurrency(price)})`,
+        })
     )
 
     return (

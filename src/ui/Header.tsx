@@ -1,12 +1,9 @@
 import { Link } from 'react-router'
-import { useSelector } from 'react-redux'
 
 import AppNav from './AppNav'
-import { getUsername } from '../features/user/userSlice'
+import Username from '../features/user/Username'
 
 function Header() {
-    const username = useSelector(getUsername)
-
     return (
         <header className="relative flex items-center justify-between border-b border-stone-900 bg-red-600 px-4 py-3 uppercase sm:px-6">
             <Link to="/" className="tracking-widest">
@@ -17,7 +14,7 @@ function Header() {
                 <AppNav />
             </span>
 
-            {username !== '' && <p>Hello, {username}</p>}
+            <Username />
         </header>
     )
 }

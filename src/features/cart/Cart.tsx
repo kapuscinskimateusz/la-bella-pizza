@@ -13,19 +13,15 @@ function Cart() {
 
     if (isEmpty) return <EmptyCart />
 
-    function handleClear() {
-        dispatch(clearCart())
-    }
-
     return (
         <div>
-            <ul>
+            <ul className="divide-y divide-stone-700">
                 {cart.map((item) => (
                     <CartItem key={item.id} item={item} />
                 ))}
             </ul>
 
-            <Button variant="secondary" onClick={handleClear}>
+            <Button variant="secondary" onClick={() => dispatch(clearCart())}>
                 Clear cart
             </Button>
         </div>
