@@ -15,11 +15,11 @@ const cartSlice = createSlice({
         },
         increaseItemQuantity(
             state,
-            action: PayloadAction<{ itemId: string; value: number }>
+            action: PayloadAction<{ cartItemId: string; value: number }>
         ) {
-            const { itemId, value } = action.payload
+            const { cartItemId, value } = action.payload
 
-            const item = state.cart.find((el) => el.id === itemId)
+            const item = state.cart.find((el) => el.id === cartItemId)
             if (!item) return
 
             item.quantity += value

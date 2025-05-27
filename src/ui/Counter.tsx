@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useContext, type Dispatch } from 'react'
+import { createContext, type ReactNode, useContext } from 'react'
 import Button from './Button'
 import type { ButtonSize, ButtonVariant } from '../types'
 
@@ -8,19 +8,27 @@ interface ContextDefaultValue {
     increase: () => void
 }
 
-interface CounterProps {
-    children: ReactNode
-    count: number
-    setCount: Dispatch<React.SetStateAction<number>>
-    min?: number
-}
-
 const CounterContext = createContext<ContextDefaultValue | null>(null)
 
-function Counter({ children, count, setCount, min = 0 }: CounterProps) {
-    const decrease = () =>
-        setCount((count) => (count > min ? count - 1 : count))
-    const increase = () => setCount((count) => count + 1)
+interface CounterProps {
+    children: ReactNode
+    value: number
+    minValue?: number
+    step?: number
+    onDecrease: (step: number) => void
+    onIncrease: (step: number) => void
+}
+
+function Counter({
+    children,
+    value: count,
+    minValue = 0,
+    step = 1,
+    onDecrease,
+    onIncrease,
+}: CounterProps) {
+    const decrease = () => (count > minValue ? onDecrease(step) : undefined)
+    const increase = () => onIncrease(step)
 
     return (
         <CounterContext.Provider value={{ count, decrease, increase }}>
@@ -30,13 +38,13 @@ function Counter({ children, count, setCount, min = 0 }: CounterProps) {
 }
 
 interface DecreaseIncreaseProps {
-    icon: ReactNode
+    icon?: ReactNode
     variant?: ButtonVariant
     size?: ButtonSize
 }
 
 function Decrease({
-    icon,
+    icon = '-',
     variant = 'primary',
     size = 'medium',
 }: DecreaseIncreaseProps) {
@@ -57,7 +65,7 @@ function Decrease({
 }
 
 function Increase({
-    icon,
+    icon = '+',
     variant = 'primary',
     size = 'medium',
 }: DecreaseIncreaseProps) {
