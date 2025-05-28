@@ -7,6 +7,7 @@ import {
 } from 'react'
 
 import type { Drink, MenuItem, Pizza, Sauce } from '../types/menu'
+import type { CartItem } from '../types/cart'
 
 export function formatCurrency(value: number) {
     return new Intl.NumberFormat('en-US', {
@@ -25,14 +26,14 @@ export function findChildByType<T extends ElementType>(
     )
 }
 
-export function isPizza(item: MenuItem): item is Pizza {
+export function isPizza(item: MenuItem | CartItem): item is Pizza {
     return item.category === 'pizza'
 }
 
-export function isSauce(item: MenuItem): item is Sauce {
+export function isSauce(item: MenuItem | CartItem): item is Sauce {
     return item.category === 'sauce'
 }
 
-export function isDrink(item: MenuItem): item is Drink {
+export function isDrink(item: MenuItem | CartItem): item is Drink {
     return item.category === 'drink'
 }

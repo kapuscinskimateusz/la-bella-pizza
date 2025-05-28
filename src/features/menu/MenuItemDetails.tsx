@@ -20,7 +20,7 @@ interface MenuItemDetailsProps {
 }
 
 function MenuItemDetails({ item }: MenuItemDetailsProps) {
-    const { id, name, description } = item
+    const { id, name, description, category } = item
 
     const [quantity, setQuantity] = useState(1)
     const [pizzaSize, setPizzaSize] = useState<PizzaSize>('small')
@@ -43,6 +43,7 @@ function MenuItemDetails({ item }: MenuItemDetailsProps) {
             const newItem: CartItem = {
                 id: cartItemId,
                 name,
+                category,
                 quantity,
                 unitPrice: isPizza(item) ? item.sizes[pizzaSize] : item.price,
                 totalPrice: isPizza(item)

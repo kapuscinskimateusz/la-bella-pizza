@@ -1,15 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { clearCart, getCart } from './cartSlice'
+import { getCart } from './cartSlice'
 import EmptyCart from './EmptyCart'
 import CartItem from './CartItem'
-import Button from '../../ui/Button'
+import ClearCart from './ClearCart'
 
 function Cart() {
     const cart = useSelector(getCart)
     const isEmpty = cart.length === 0
-
-    const dispatch = useDispatch()
 
     if (isEmpty) return <EmptyCart />
 
@@ -21,9 +19,7 @@ function Cart() {
                 ))}
             </ul>
 
-            <Button variant="secondary" onClick={() => dispatch(clearCart())}>
-                Clear cart
-            </Button>
+            <ClearCart />
         </div>
     )
 }
