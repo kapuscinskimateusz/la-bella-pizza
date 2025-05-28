@@ -30,20 +30,6 @@
         },
         {
             "id": 3,
-            "name": "Quattro Formaggi",
-            "category": "pizza",
-            "description": "A rich and creamy blend of four cheeses.",
-            "ingredients": ["mozzarella", "gorgonzola", "parmesan", "fontina"],
-            "sizes": {
-                "small": 8.49,
-                "medium": 10.49,
-                "large": 12.49
-            },
-            "image": "img/pizzas/quattro-formaggi.jpg",
-            "soldOut": false
-        },
-        {
-            "id": 4,
             "name": "Vegetariana",
             "category": "pizza",
             "description": "A garden-fresh mix of seasonal vegetables.",
@@ -64,7 +50,7 @@
             "soldOut": false
         },
         {
-            "id": 5,
+            "id": 4,
             "name": "Prosciutto e Funghi",
             "category": "pizza",
             "description": "Delicious combination of Italian ham and mushrooms.",
@@ -83,7 +69,7 @@
             "soldOut": true
         },
         {
-            "id": 6,
+            "id": 5,
             "name": "Diavola",
             "category": "pizza",
             "description": "Spicy Italian salami with a fiery kick of chili oil.",
@@ -102,7 +88,7 @@
             "soldOut": false
         },
         {
-            "id": 7,
+            "id": 6,
             "name": "Capricciosa",
             "category": "pizza",
             "description": "A traditional Italian pizza with artichokes, ham, mushrooms, and olives.",
@@ -123,7 +109,7 @@
             "soldOut": false
         },
         {
-            "id": 8,
+            "id": 7,
             "name": "Bufalina",
             "category": "pizza",
             "description": "Elegant and simple with buffalo mozzarella and cherry tomatoes.",
@@ -140,20 +126,6 @@
                 "large": 13.49
             },
             "image": "img/pizzas/bufalina.jpg",
-            "soldOut": false
-        },
-        {
-            "id": 9,
-            "name": "Hawaiian",
-            "category": "pizza",
-            "description": "A tropical mix of ham and pineapple on a cheesy tomato base.",
-            "ingredients": ["tomato sauce", "mozzarella", "ham", "pineapple"],
-            "sizes": {
-                "small": 8.49,
-                "medium": 10.49,
-                "large": 12.49
-            },
-            "image": "img/pizzas/hawaiian.jpg",
             "soldOut": false
         },
         {
