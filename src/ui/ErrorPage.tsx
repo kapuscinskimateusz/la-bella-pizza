@@ -1,4 +1,5 @@
 import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router'
+
 import Button from './Button'
 
 function ErrorPage() {

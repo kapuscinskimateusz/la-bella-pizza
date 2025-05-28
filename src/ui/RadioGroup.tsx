@@ -1,10 +1,7 @@
-interface Option {
-    value: string
-    label: string
-}
+import type { Option } from '../types/ui'
 
 interface RadioGroupProps {
-    options: Option[]
+    options: Option<string>[]
     name: string
     selectedValue: string
     onChange: (newValue: string) => void

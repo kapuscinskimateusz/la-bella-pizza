@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router'
-import type { ButtonVariant as Variant, ButtonSize as Size } from '../types'
+
+import type { ButtonSize as Size, ButtonVariant as Variant } from '../types/ui'
 
 interface ButtonProps {
     children: ReactNode

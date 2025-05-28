@@ -3,6 +3,7 @@
         {
             "id": 1,
             "name": "Margherita",
+            "category": "pizza",
             "description": "A classic Neapolitan pizza with tomato sauce, mozzarella, and fresh basil.",
             "ingredients": ["tomato sauce", "mozzarella", "basil", "olive oil"],
             "sizes": {
@@ -10,12 +11,13 @@
                 "medium": 8.99,
                 "large": 10.99
             },
-            "image": "img/margherita.jpg",
+            "image": "img/pizzas/margherita.jpg",
             "soldOut": false
         },
         {
             "id": 2,
             "name": "Pepperoni",
+            "category": "pizza",
             "description": "A favorite topped with spicy pepperoni and mozzarella cheese.",
             "ingredients": ["tomato sauce", "mozzarella", "pepperoni"],
             "sizes": {
@@ -23,12 +25,13 @@
                 "medium": 9.99,
                 "large": 11.99
             },
-            "image": "img/pepperoni.jpg",
+            "image": "img/pizzas/pepperoni.jpg",
             "soldOut": false
         },
         {
             "id": 3,
             "name": "Quattro Formaggi",
+            "category": "pizza",
             "description": "A rich and creamy blend of four cheeses.",
             "ingredients": ["mozzarella", "gorgonzola", "parmesan", "fontina"],
             "sizes": {
@@ -36,12 +39,13 @@
                 "medium": 10.49,
                 "large": 12.49
             },
-            "image": "img/quattro-formaggi.jpg",
+            "image": "img/pizzas/quattro-formaggi.jpg",
             "soldOut": false
         },
         {
             "id": 4,
             "name": "Vegetariana",
+            "category": "pizza",
             "description": "A garden-fresh mix of seasonal vegetables.",
             "ingredients": [
                 "tomato sauce",
@@ -56,12 +60,13 @@
                 "medium": 9.49,
                 "large": 11.49
             },
-            "image": "img/vegetariana.jpg",
+            "image": "img/pizzas/vegetariana.jpg",
             "soldOut": false
         },
         {
             "id": 5,
             "name": "Prosciutto e Funghi",
+            "category": "pizza",
             "description": "Delicious combination of Italian ham and mushrooms.",
             "ingredients": [
                 "tomato sauce",
@@ -74,12 +79,13 @@
                 "medium": 10.99,
                 "large": 12.99
             },
-            "image": "img/prosciutto-e-funghi.jpg",
+            "image": "img/pizzas/prosciutto-e-funghi.jpg",
             "soldOut": true
         },
         {
             "id": 6,
             "name": "Diavola",
+            "category": "pizza",
             "description": "Spicy Italian salami with a fiery kick of chili oil.",
             "ingredients": [
                 "tomato sauce",
@@ -92,12 +98,13 @@
                 "medium": 10.49,
                 "large": 12.49
             },
-            "image": "img/diavola.jpg",
+            "image": "img/pizzas/diavola.jpg",
             "soldOut": false
         },
         {
             "id": 7,
             "name": "Capricciosa",
+            "category": "pizza",
             "description": "A traditional Italian pizza with artichokes, ham, mushrooms, and olives.",
             "ingredients": [
                 "tomato sauce",
@@ -112,12 +119,13 @@
                 "medium": 10.99,
                 "large": 13.49
             },
-            "image": "img/capricciosa.jpg",
+            "image": "img/pizzas/capricciosa.jpg",
             "soldOut": false
         },
         {
             "id": 8,
             "name": "Bufalina",
+            "category": "pizza",
             "description": "Elegant and simple with buffalo mozzarella and cherry tomatoes.",
             "ingredients": [
                 "tomato sauce",
@@ -131,12 +139,13 @@
                 "medium": 11.49,
                 "large": 13.49
             },
-            "image": "img/bufalina.jpg",
+            "image": "img/pizzas/bufalina.jpg",
             "soldOut": false
         },
         {
             "id": 9,
             "name": "Hawaiian",
+            "category": "pizza",
             "description": "A tropical mix of ham and pineapple on a cheesy tomato base.",
             "ingredients": ["tomato sauce", "mozzarella", "ham", "pineapple"],
             "sizes": {
@@ -144,7 +153,61 @@
                 "medium": 10.49,
                 "large": 12.49
             },
-            "image": "img/hawaiian.jpg",
+            "image": "img/pizzas/hawaiian.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 101,
+            "name": "Garlic Sauce",
+            "category": "sauce",
+            "description": "Creamy garlic sauce, perfect with any pizza.",
+            "price": 1.49,
+            "image": "img/sauces/sauce-garlic.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 102,
+            "name": "Spicy Tomato Sauce",
+            "category": "sauce",
+            "description": "A rich tomato sauce with a kick of chili.",
+            "price": 1.49,
+            "image": "img/sauces/sauce-spicy-tomato.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 103,
+            "name": "BBQ Sauce",
+            "category": "sauce",
+            "description": "Sweet and smoky barbecue sauce, a bold flavor boost.",
+            "price": 1.49,
+            "image": "img/sauces/sauce-bbq.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 201,
+            "name": "Coca-Cola",
+            "category": "drink",
+            "description": "Chilled classic Coca-Cola, 330ml can.",
+            "price": 2.49,
+            "image": "img/drinks/drink-coca-cola.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 202,
+            "name": "Sparkling Water",
+            "category": "drink",
+            "description": "Refreshing sparkling mineral water, 500ml bottle.",
+            "price": 1.99,
+            "image": "img/drinks/drink-sparkling-water.jpg",
+            "soldOut": false
+        },
+        {
+            "id": 203,
+            "name": "Lemon Iced Tea",
+            "category": "drink",
+            "description": "Cool lemon-flavored iced tea, 500ml bottle.",
+            "price": 2.29,
+            "image": "img/drinks/drink-lemon-iced-tea.jpg",
             "soldOut": false
         }
     ]

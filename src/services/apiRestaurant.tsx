@@ -1,4 +1,4 @@
-import type { MenuItem } from '../types'
+import type { MenuItem } from '../types/menu'
 
 const API_URL = 'http://localhost:3000'
 

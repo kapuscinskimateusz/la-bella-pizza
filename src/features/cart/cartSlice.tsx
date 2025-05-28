@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+
 import type { RootState } from '../../store'
-import type { CartItem } from '../../types'
+import type { CartItem } from '../../types/cart'
 
 const initialState = {
     cart: [] as CartItem[],
@@ -19,13 +20,13 @@ const cartSlice = createSlice({
         },
         increaseItemQuantity(
             state,
-            action: PayloadAction<{ id: string; value: number }>
+            action: PayloadAction<{ itemId: string; value: number }>
         ) {
-            // payload.id = cartItemId
+            // payload.itemId = cartItemId
             // payload.value = value added to quantity
-            const { id, value } = action.payload
+            const { itemId, value } = action.payload
 
-            const item = state.cart.find((el) => el.id === id)
+            const item = state.cart.find((el) => el.id === itemId)
             if (!item) return
 
             item.quantity += value
@@ -33,13 +34,13 @@ const cartSlice = createSlice({
         },
         decreaseItemQuantity(
             state,
-            action: PayloadAction<{ id: string; value: number }>
+            action: PayloadAction<{ itemId: string; value: number }>
         ) {
-            // payload.id = cartItemId
+            // payload.itemId = cartItemId
             // payload.value = value substracted from quantity
-            const { id, value } = action.payload
+            const { itemId, value } = action.payload
 
-            const item = state.cart.find((el) => el.id === id)
+            const item = state.cart.find((el) => el.id === itemId)
             if (!item) return
 
             item.quantity -= value

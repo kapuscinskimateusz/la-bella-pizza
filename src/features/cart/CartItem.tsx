@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux'
 
-import type { CartItem as CartItemType } from '../../types'
 import Button from '../../ui/Button'
 import { formatCurrency } from '../../utils/helpers'
 import UpdateItemQuantity from './UpdateItemQuantity'
 import { deleteItem } from './cartSlice'
+import type { CartItem as CartItemType } from '../../types/cart'
 
 interface CartItemProps {
     item: CartItemType

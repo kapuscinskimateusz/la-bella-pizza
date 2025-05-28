@@ -1,8 +1,8 @@
 import { useLoaderData } from 'react-router'
 
 import { getMenu } from '../../services/apiRestaurant'
-import type { MenuItem as MenuItemType } from '../../types'
 import MenuItem from './MenuItem'
+import type { MenuItem as MenuItemType } from '../../types/menu'
 
 function Menu() {
     const menu = useLoaderData<MenuItemType[]>()

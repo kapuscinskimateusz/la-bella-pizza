@@ -1,6 +1,7 @@
 import { createContext, type ReactNode, useContext } from 'react'
+
 import Button from './Button'
-import type { ButtonSize, ButtonVariant } from '../types'
+import type { ButtonSize, ButtonVariant } from '../types/ui'
 
 interface ContextDefaultValue {
     count: number
@@ -37,6 +38,14 @@ function Counter({
     )
 }
 
+function useCounter(componentName = 'A Counter subcomponent') {
+    const context = useContext(CounterContext)
+    if (!context)
+        throw new Error(`${componentName} must be used within <Counter>`)
+
+    return context
+}
+
 interface DecreaseIncreaseProps {
     icon?: ReactNode
     variant?: ButtonVariant
@@ -48,16 +57,14 @@ function Decrease({
     variant = 'primary',
     size = 'medium',
 }: DecreaseIncreaseProps) {
-    const ctx = useContext(CounterContext)
-    if (!ctx)
-        throw new Error('Counter.Decrease was used outside of the Counter')
+    const { decrease } = useCounter('Counter.Decrease')
 
     return (
         <Button
             {...(variant ? { variant } : {})}
             {...(size ? { size } : {})}
             round
-            onClick={ctx.decrease}
+            onClick={decrease}
         >
             {icon}
         </Button>
@@ -69,16 +76,14 @@ function Increase({
     variant = 'primary',
     size = 'medium',
 }: DecreaseIncreaseProps) {
-    const ctx = useContext(CounterContext)
-    if (!ctx)
-        throw new Error('Counter.Increase was used outside of the Counter')
+    const { increase } = useCounter('Counter.Increase')
 
     return (
         <Button
             {...(variant ? { variant } : {})}
             {...(size ? { size } : {})}
             round
-            onClick={ctx.increase}
+            onClick={increase}
         >
             {icon}
         </Button>
@@ -86,10 +91,9 @@ function Increase({
 }
 
 function Count() {
-    const ctx = useContext(CounterContext)
-    if (!ctx) throw new Error('Counter.Count was used outside of the Counter')
+    const { count } = useCounter('Counter.Count')
 
-    return <span>{ctx.count}</span>
+    return <span>{count}</span>
 }
 
 Counter.Decrease = Decrease
