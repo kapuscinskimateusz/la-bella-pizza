@@ -1,5 +1,7 @@
 export type Category = 'pizza' | 'sauce' | 'drink'
 
+export type CategoryFilter = Category | 'all'
+
 interface BaseMenuItem {
     id: number
     name: string
