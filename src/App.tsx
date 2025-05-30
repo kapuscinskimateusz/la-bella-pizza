@@ -21,6 +21,8 @@ const router = createBrowserRouter([
                 path: '/menu',
                 element: <Menu />,
                 loader: menuLoader,
+                shouldRevalidate: ({ currentUrl, nextUrl }) =>
+                    currentUrl.pathname !== nextUrl.pathname,
             },
             {
                 path: '/about',
