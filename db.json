@@ -4,7 +4,7 @@
             "id": 1,
             "name": "Margherita",
             "category": "pizza",
-            "tags": ["vegetarian", "classic", "spicy"],
+            "tags": ["vegetarian", "classic"],
             "description": "A classic Neapolitan pizza with tomato sauce, mozzarella, and fresh basil.",
             "ingredients": ["tomato sauce", "mozzarella", "basil", "olive oil"],
             "sizes": {

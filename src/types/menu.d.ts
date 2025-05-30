@@ -1,6 +1,11 @@
 export type Category = 'pizza' | 'sauce' | 'drink'
 
-export type CategoryFilter = Category | 'all'
+export type FilterValue<T> = T | 'all'
+
+export type SortField = 'name' | 'price'
+export type SortDirection = 'asc' | 'desc'
+
+export type SortValue = `${SortField}-${SortDirection}`
 
 interface BaseMenuItem {
     id: number

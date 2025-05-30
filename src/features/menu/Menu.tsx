@@ -1,32 +1,40 @@
 import { useLoaderData, useSearchParams } from 'react-router'
 
-import { getMenu } from '../../services/apiRestaurant'
-import MenuItem from './MenuItem'
 import type {
-    CategoryFilter as CategoryFilterType,
+    Category,
+    FilterValue,
     MenuItem as MenuItemType,
+    SortDirection,
+    SortField,
+    SortValue,
 } from '../../types/menu'
-import CategoryFilter from './CategoryFilter'
+import { getMenu } from '../../services/apiRestaurant'
+import { isPizza } from '../../utils/helpers'
+import MenuItem from './MenuItem'
+import MenuListOperations from './MenuListOperations'
 
 function Menu() {
     const menu = useLoaderData<MenuItemType[]>()
     const [searchParams] = useSearchParams()
 
-    const filterValue = (searchParams.get('category') ||
-        'all') as CategoryFilterType
+    const filterValue: FilterValue<Category> =
+        (searchParams.get('category') as FilterValue<Category>) || 'all'
+    const sortValue: SortValue =
+        (searchParams.get('sortBy') as SortValue) || 'name-asc'
 
     const filteredMenu = filterMenu(menu, filterValue)
+    const sortedMenu = sortMenu(filteredMenu, sortValue)
 
     return (
-        <>
-            <CategoryFilter />
+        <div className="pt-2">
+            <MenuListOperations />
 
             <ul className="divide-y divide-stone-700">
-                {filteredMenu.map((item) => (
+                {sortedMenu.map((item) => (
                     <MenuItem key={item.id} item={item} />
                 ))}
             </ul>
-        </>
+        </div>
     )
 }
 
@@ -37,7 +45,31 @@ export async function loader() {
 
 export default Menu
 
-function filterMenu(menu: MenuItemType[], filter: CategoryFilterType) {
+function filterMenu(menu: MenuItemType[], filter: FilterValue<Category>) {
     if (filter === 'all') return menu
     return menu.filter((item) => item.category === filter)
+}
+
+function sortMenu(menu: MenuItemType[], sortBy: SortValue) {
+    const [field, direction] = sortBy.split('-') as [SortField, SortDirection]
+    const modifier = direction === 'asc' ? 1 : -1
+
+    return [...menu].sort((a, b) => {
+        switch (field) {
+            case 'name':
+                return a.name.localeCompare(b.name) * modifier
+            case 'price':
+                return (
+                    (getComparablePrice(a) - getComparablePrice(b)) * modifier
+                )
+            default:
+                return 0
+        }
+    })
+}
+
+function getComparablePrice(item: MenuItemType) {
+    if (isPizza(item)) return item.sizes.small
+
+    return item.price
 }
