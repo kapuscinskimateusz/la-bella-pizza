@@ -23,8 +23,11 @@ function MenuItem({ item }: MenuItemProps) {
 
             <div className="flex flex-grow flex-col pt-0.5">
                 <p className="font-medium">
-                    {name} {tags.includes('vegetarian') && <span>🌿</span>}{' '}
-                    {tags.includes('spicy') && <span>🔥</span>}
+                    {name}{' '}
+                    {tags.includes('vegetarian') && (
+                        <span title="Contains no meat">🌿</span>
+                    )}{' '}
+                    {tags.includes('spicy') && <span title="Spicy">🔥</span>}
                 </p>
 
                 <Ingredients item={item} />
