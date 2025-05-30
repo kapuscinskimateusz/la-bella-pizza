@@ -1,6 +1,8 @@
 import { useSearchParams } from 'react-router'
 
 import type { Option } from '../types/ui'
+import ButtonGroup from './ButtonGroup'
+import Button from './Button'
 
 interface FilterProps {
     filterField: string
@@ -9,7 +11,7 @@ interface FilterProps {
 
 function Filter({ filterField, options }: FilterProps) {
     const [searchParams, setSearchParams] = useSearchParams()
-    const currentFilter = searchParams.get(filterField) || options[0]?.value
+    // const currentFilter = searchParams.get(filterField) || options[0]?.value
 
     function handleClick(value: string) {
         searchParams.set(filterField, value)
@@ -17,17 +19,13 @@ function Filter({ filterField, options }: FilterProps) {
     }
 
     return (
-        <div>
+        <ButtonGroup>
             {options.map(({ label, value }) => (
-                <button
-                    key={value}
-                    onClick={() => handleClick(value)}
-                    className={value === currentFilter ? 'text-red-700' : ''}
-                >
+                <Button key={value} onClick={() => handleClick(value)}>
                     {label}
-                </button>
+                </Button>
             ))}
-        </div>
+        </ButtonGroup>
     )
 }
 
