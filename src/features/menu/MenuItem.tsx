@@ -1,4 +1,5 @@
 import type { MenuItem as MenuItemType } from '../../types/menu'
+import { isPizza } from '../../utils/helpers'
 import Ingredients from './Ingredients'
 import MenuItemDetails from './MenuItemDetails'
 import MenuItemPrice from './MenuItemPrice'
@@ -10,6 +11,8 @@ interface MenuItemProps {
 function MenuItem({ item }: MenuItemProps) {
     const { image, name, soldOut } = item
 
+    const tags = isPizza(item) ? item.tags : []
+
     return (
         <li className="flex gap-4 py-2">
             <img
@@ -19,7 +22,10 @@ function MenuItem({ item }: MenuItemProps) {
             />
 
             <div className="flex flex-grow flex-col pt-0.5">
-                <p className="font-medium">{name}</p>
+                <p className="font-medium">
+                    {name} {tags.includes('vegetarian') && <span>🌿</span>}{' '}
+                    {tags.includes('spicy') && <span>🔥</span>}
+                </p>
 
                 <Ingredients item={item} />
 

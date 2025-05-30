@@ -4,6 +4,7 @@
             "id": 1,
             "name": "Margherita",
             "category": "pizza",
+            "tags": ["vegetarian", "classic", "spicy"],
             "description": "A classic Neapolitan pizza with tomato sauce, mozzarella, and fresh basil.",
             "ingredients": ["tomato sauce", "mozzarella", "basil", "olive oil"],
             "sizes": {
@@ -18,6 +19,7 @@
             "id": 2,
             "name": "Pepperoni",
             "category": "pizza",
+            "tags": ["classic", "spicy"],
             "description": "A favorite topped with spicy pepperoni and mozzarella cheese.",
             "ingredients": ["tomato sauce", "mozzarella", "pepperoni"],
             "sizes": {
@@ -32,6 +34,7 @@
             "id": 3,
             "name": "Vegetariana",
             "category": "pizza",
+            "tags": ["vegetarian", "classic"],
             "description": "A garden-fresh mix of seasonal vegetables.",
             "ingredients": [
                 "tomato sauce",
@@ -53,6 +56,7 @@
             "id": 4,
             "name": "Prosciutto e Funghi",
             "category": "pizza",
+            "tags": ["classic"],
             "description": "Delicious combination of Italian ham and mushrooms.",
             "ingredients": [
                 "tomato sauce",
@@ -72,6 +76,7 @@
             "id": 5,
             "name": "Diavola",
             "category": "pizza",
+            "tags": ["spicy", "classic"],
             "description": "Spicy Italian salami with a fiery kick of chili oil.",
             "ingredients": [
                 "tomato sauce",
@@ -91,6 +96,7 @@
             "id": 6,
             "name": "Capricciosa",
             "category": "pizza",
+            "tags": ["classic"],
             "description": "A traditional Italian pizza with artichokes, ham, mushrooms, and olives.",
             "ingredients": [
                 "tomato sauce",
@@ -112,6 +118,7 @@
             "id": 7,
             "name": "Bufalina",
             "category": "pizza",
+            "tags": ["vegetarian", "classic"],
             "description": "Elegant and simple with buffalo mozzarella and cherry tomatoes.",
             "ingredients": [
                 "tomato sauce",

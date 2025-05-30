@@ -13,6 +13,8 @@ interface BaseMenuItem {
 
 export type PizzaSize = keyof PizzaSizes
 
+export type PizzaTag = 'vegetarian' | 'classic' | 'spicy'
+
 export interface PizzaSizes {
     small: number
     medium: number
@@ -21,6 +23,7 @@ export interface PizzaSizes {
 
 export interface Pizza extends BaseMenuItem {
     category: 'pizza'
+    tags: PizzaTag[]
     ingredients: string[]
     sizes: PizzaSizes
 }
