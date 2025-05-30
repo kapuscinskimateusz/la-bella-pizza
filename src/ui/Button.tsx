@@ -18,7 +18,7 @@ export interface ButtonProps {
 }
 
 const baseClasses =
-    'inline-flex cursor-pointer items-center justify-center rounded-full font-semibold uppercase tracking-wide outline-none transition-colors duration-300 focus:ring focus:ring-offset-2 focus:ring-offset-stone-800'
+    'inline-flex cursor-pointer items-center justify-center font-semibold uppercase tracking-wide outline-none transition-colors duration-300 focus:z-10 focus:ring focus:ring-offset-2 focus:ring-offset-stone-800'
 
 const variantClasses: Record<Variant, string> = {
     primary: 'bg-red-600 hover:bg-red-700 focus:bg-red-700 focus:ring-red-700',
@@ -26,33 +26,39 @@ const variantClasses: Record<Variant, string> = {
         'border-2 border-stone-300 text-stone-400 hover:bg-stone-300 hover:text-stone-800 focus:bg-stone-300 focus:text-stone-800 focus:ring-stone-200',
 }
 
+const sizeClasses: Record<Size, { base: string; round: string }> = {
+    small: {
+        base: 'h-8 px-4 text-xs md:h-9 md:px-5',
+        round: 'aspect-square h-8 text-xs md:h-9',
+    },
+    medium: {
+        base: 'h-11 px-4 text-sm md:h-[52px] md:px-6',
+        round: 'aspect-square h-11 text-sm md:h-[52px]',
+    },
+}
+
 const groupPositionClasses: Record<GroupPosition, string> = {
-    only: 'rounded-full focus:ring-0 focus:ring-offset-0',
-    first: 'rounded-l-full rounded-r-none focus:ring-0 focus:ring-offset-0',
-    middle: 'rounded-none focus:ring-0 focus:ring-offset-0',
-    last: 'rounded-l-none rounded-r-full focus:ring-0 focus:ring-offset-0',
+    only: 'rounded-full',
+    first: 'rounded-l-full rounded-r-none',
+    middle: 'rounded-none',
+    last: 'rounded-l-none rounded-r-full',
 }
 
 function Button({
     children,
     variant = 'primary',
     size = 'medium',
-    round,
+    round = false,
     to,
     groupPosition = 'only',
-    onClick = () => {},
+    onClick,
 }: ButtonProps) {
     const navigate = useNavigate()
 
-    const sizeClasses: Record<Size, string> = {
-        small: `text-xs ${round ? 'aspect-square h-8 md:h-9' : 'h-8 px-4 md:h-9 md:px-5'}`,
-        medium: `text-sm ${round ? 'aspect-square h-11 md:h-[52px]' : 'h-11 px-4 text-sm md:h-[52px] md:px-6'}`,
-    }
-
-    const computedClasses = [
+    const classes = [
         baseClasses,
         variantClasses[variant],
-        sizeClasses[size],
+        round ? sizeClasses[size].round : sizeClasses[size].base,
         groupPositionClasses[groupPosition],
     ].join(' ')
 
@@ -62,11 +68,11 @@ function Button({
             return
         }
 
-        onClick()
+        onClick?.()
     }
 
     return (
-        <button className={computedClasses} onClick={handleClick}>
+        <button className={classes} onClick={handleClick}>
             {children}
         </button>
     )

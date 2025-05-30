@@ -19,7 +19,7 @@ function Filter({ filterField, options }: FilterProps) {
     }
 
     return (
-        <ButtonGroup>
+        <ButtonGroup size="small">
             {options.map(({ label, value }) => (
                 <Button key={value} onClick={() => handleClick(value)}>
                     {label}
