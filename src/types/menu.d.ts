@@ -1,8 +1,7 @@
 export type Category = 'pizza' | 'sauce' | 'drink'
 
-export type FilterValue<T> = T | 'all'
-
 export type SortField = 'name' | 'price'
+
 export type SortDirection = 'asc' | 'desc'
 
 export type SortValue = `${SortField}-${SortDirection}`
@@ -16,9 +15,9 @@ interface BaseMenuItem {
     soldOut: boolean
 }
 
-export type PizzaSize = keyof PizzaSizes
-
 export type PizzaTag = 'vegetarian' | 'classic' | 'spicy'
+
+export type PizzaSize = keyof PizzaSizes
 
 export interface PizzaSizes {
     small: number

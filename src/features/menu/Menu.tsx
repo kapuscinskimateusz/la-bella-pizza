@@ -2,7 +2,6 @@ import { useLoaderData, useSearchParams } from 'react-router'
 
 import type {
     Category,
-    FilterValue,
     MenuItem as MenuItemType,
     SortDirection,
     SortField,
@@ -17,12 +16,12 @@ function Menu() {
     const menu = useLoaderData<MenuItemType[]>()
     const [searchParams] = useSearchParams()
 
-    const filterValue: FilterValue<Category> =
-        (searchParams.get('category') as FilterValue<Category>) || 'all'
+    const filterValue: Category =
+        (searchParams.get('category') as Category) || 'pizza'
     const sortValue: SortValue =
-        (searchParams.get('sortBy') as SortValue) || 'name-asc'
+        (searchParams.get('sortBy') as SortValue) || 'price-asc'
 
-    const filteredMenu = filterMenu(menu, filterValue)
+    const filteredMenu = menu.filter((item) => item.category === filterValue)
     const sortedMenu = sortMenu(filteredMenu, sortValue)
 
     return (
@@ -44,11 +43,6 @@ export async function loader() {
 }
 
 export default Menu
-
-function filterMenu(menu: MenuItemType[], filter: FilterValue<Category>) {
-    if (filter === 'all') return menu
-    return menu.filter((item) => item.category === filter)
-}
 
 function sortMenu(menu: MenuItemType[], sortBy: SortValue) {
     const [field, direction] = sortBy.split('-') as [SortField, SortDirection]
