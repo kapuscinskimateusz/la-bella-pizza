@@ -34,7 +34,8 @@ function MenuItem({ item }: MenuItemProps) {
 
                 <div className="mt-auto flex items-center justify-between">
                     <MenuItemPrice item={item} />
-                    <MenuItemDetails item={item} />
+
+                    {!soldOut && <MenuItemDetails item={item} />}
                 </div>
             </div>
         </li>
