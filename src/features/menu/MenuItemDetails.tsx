@@ -6,7 +6,7 @@ import Button from '../../ui/Button'
 import Modal from '../../ui/Modal'
 import Ingredients from './Ingredients'
 import UpdateItemQuantity from './UpdateItemQuantity'
-import { isPizza } from '../../utils/helpers'
+import { formatCurrency, isPizza } from '../../utils/helpers'
 import {
     addItem,
     getCartItemById,
@@ -25,11 +25,14 @@ function MenuItemDetails({ item }: MenuItemDetailsProps) {
     const [quantity, setQuantity] = useState(1)
     const [pizzaSize, setPizzaSize] = useState<PizzaSize>('small')
 
+    const totalPrice = isPizza(item)
+        ? item.sizes[pizzaSize] * quantity
+        : item.price * quantity
+
     // This is the unique ID the item will have once added to the cart
-    const cartItemId = generateCartItemId(
-        id,
-        isPizza(item) ? pizzaSize : undefined
-    )
+    const cartItemId = isPizza(item)
+        ? generateCartItemId(id, pizzaSize)
+        : generateCartItemId(id)
 
     const cartItem = useSelector(getCartItemById(cartItemId))
     const dispatch = useDispatch()
@@ -46,9 +49,7 @@ function MenuItemDetails({ item }: MenuItemDetailsProps) {
                 category,
                 quantity,
                 unitPrice: isPizza(item) ? item.sizes[pizzaSize] : item.price,
-                totalPrice: isPizza(item)
-                    ? item.sizes[pizzaSize] * quantity
-                    : item.price * quantity,
+                totalPrice,
                 ...(isPizza(item) ? { size: pizzaSize } : {}),
             }
 
@@ -87,7 +88,9 @@ function MenuItemDetails({ item }: MenuItemDetailsProps) {
                         />
 
                         <Modal.Close handler={handleAddToCart}>
-                            <Button>Add to cart</Button>
+                            <Button>
+                                Add to cart ({formatCurrency(totalPrice)})
+                            </Button>
                         </Modal.Close>
                     </div>
                 </Modal.Footer>
