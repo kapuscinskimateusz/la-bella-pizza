@@ -1,4 +1,3 @@
-import type { ChangeEvent } from 'react'
 import { useSearchParams } from 'react-router'
 
 import type { Option } from '../types/ui'
@@ -12,15 +11,16 @@ function SortBy({ options }: SortByProps) {
     const [searchParams, setSearchParams] = useSearchParams()
     const sortBy = searchParams.get('sortBy') || ''
 
-    function handleChange(e: ChangeEvent<HTMLSelectElement>) {
-        searchParams.set('sortBy', e.target.value)
+    function handleChange(value: string) {
+        searchParams.set('sortBy', value)
         setSearchParams(searchParams)
     }
 
     return (
         <Select
-            options={[{ label: 'Sort by...', value: '' }, ...options]}
+            options={options}
             value={sortBy}
+            placeholder="Select sorting"
             onChange={handleChange}
         />
     )
