@@ -18,8 +18,7 @@ function Menu() {
 
     const filterValue: Category =
         (searchParams.get('category') as Category) || 'pizza'
-    const sortValue: SortValue =
-        (searchParams.get('sortBy') as SortValue) || 'price-asc'
+    const sortValue: SortValue = (searchParams.get('sortBy') as SortValue) || ''
 
     const filteredMenu = menu.filter((item) => item.category === filterValue)
     const sortedMenu = sortMenu(filteredMenu, sortValue)
@@ -37,6 +36,7 @@ function Menu() {
     )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export async function loader() {
     const menu = await getMenu()
     return menu

@@ -17,7 +17,13 @@ function SortBy({ options }: SortByProps) {
         setSearchParams(searchParams)
     }
 
-    return <Select options={options} value={sortBy} onChange={handleChange} />
+    return (
+        <Select
+            options={[{ label: 'Sort by...', value: '' }, ...options]}
+            value={sortBy}
+            onChange={handleChange}
+        />
+    )
 }
 
 export default SortBy

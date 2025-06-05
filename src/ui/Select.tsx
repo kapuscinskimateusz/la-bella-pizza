@@ -13,7 +13,7 @@ function Select({ options, value, onChange, ...props }: SelectProps) {
         <select
             value={value}
             onChange={onChange}
-            className="bg-stone-200 text-sm text-stone-800"
+            className="h-8 rounded-lg border border-stone-600 bg-stone-700 px-2.5 text-sm outline-none transition-all duration-300 focus:border-red-600 focus:ring-2 focus:ring-red-600 md:h-9"
             {...props}
         >
             {options.map((option) => (
