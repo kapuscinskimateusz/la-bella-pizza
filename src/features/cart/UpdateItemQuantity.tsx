@@ -19,15 +19,17 @@ function UpdateItemQuantity({
 }: UpdateItemQuantityProps) {
     const dispatch = useDispatch()
 
-    const decreaseIcon =
-        currentQuantity > 1 ? <Minus size={16} /> : <Trash2 size={16} />
+    const isRemovable = currentQuantity === 1
+
+    const decreaseIcon = isRemovable ? (
+        <Trash2 size={16} />
+    ) : (
+        <Minus size={16} />
+    )
 
     function handleDecrease(step: number) {
-        if (currentQuantity > 1) {
-            dispatch(decreaseItemQuantity({ itemId, value: step }))
-        } else {
-            dispatch(deleteItem(itemId))
-        }
+        if (isRemovable) dispatch(deleteItem(itemId))
+        else dispatch(decreaseItemQuantity({ itemId, value: step }))
     }
 
     function handleIncrease(step: number) {
@@ -41,7 +43,7 @@ function UpdateItemQuantity({
             onIncrease={handleIncrease}
         >
             <Counter.Decrease size="small" icon={decreaseIcon} />
-            <span className="mx-3">
+            <span className="mx-2.5 inline-flex min-w-[2ch] justify-center">
                 <Counter.Count />
             </span>
             <Counter.Increase size="small" icon={<Plus size={16} />} />
