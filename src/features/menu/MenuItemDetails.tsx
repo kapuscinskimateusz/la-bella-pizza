@@ -89,17 +89,19 @@ function MenuItemDetails({ item }: MenuItemDetailsProps) {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <div className="flex justify-between">
+                    <div className="flex items-center gap-x-6">
                         <UpdateItemQuantity
                             quantity={quantity}
                             setQuantity={setQuantity}
                         />
 
-                        <Modal.Close handler={handleAddToCart}>
-                            <Button>
-                                Add to cart ({formatCurrency(totalPrice)})
-                            </Button>
-                        </Modal.Close>
+                        <div className="flex-grow">
+                            <Modal.Close handler={handleAddToCart}>
+                                <Button wide>
+                                    Add to cart ({formatCurrency(totalPrice)})
+                                </Button>
+                            </Modal.Close>
+                        </div>
                     </div>
                 </Modal.Footer>
             </Modal.Window>

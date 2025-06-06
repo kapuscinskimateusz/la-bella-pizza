@@ -14,6 +14,7 @@ export interface ButtonProps {
     round?: boolean
     to?: string
     groupPosition?: GroupPosition
+    wide?: boolean
     onClick?: () => void
 }
 
@@ -51,6 +52,7 @@ function Button({
     round = false,
     to,
     groupPosition = 'only',
+    wide,
     onClick,
 }: ButtonProps) {
     const navigate = useNavigate()
@@ -60,6 +62,7 @@ function Button({
         variantClasses[variant],
         round ? sizeClasses[size].round : sizeClasses[size].base,
         groupPositionClasses[groupPosition],
+        wide ? 'w-full' : '',
     ].join(' ')
 
     function handleClick() {

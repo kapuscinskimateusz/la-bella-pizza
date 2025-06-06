@@ -5,12 +5,15 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 function Input({ className = '', ...otherProps }: InputProps) {
-    const inputClasses = [
-        'rounded-full border border-stone-700 bg-stone-800 px-4 py-2 text-sm outline-none transition-all duration-300 placeholder:text-stone-500 focus:ring focus:ring-red-700 md:px-6 md:py-3',
-        className,
-    ].join(' ')
-
-    return <input className={inputClasses} {...otherProps} />
+    return (
+        <input
+            className={[
+                'rounded-full border border-stone-600 bg-stone-700 px-4 py-2 text-sm outline-none transition-all duration-300 placeholder:text-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600 md:px-6 md:py-3',
+                className,
+            ].join(' ')}
+            {...otherProps}
+        />
+    )
 }
 
 export default Input
