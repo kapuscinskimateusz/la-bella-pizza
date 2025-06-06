@@ -20,7 +20,7 @@ interface MenuItemDetailsProps {
 }
 
 function MenuItemDetails({ item }: MenuItemDetailsProps) {
-    const { id, name, description, category } = item
+    const { id, name, image, description, category } = item
 
     const [quantity, setQuantity] = useState(1)
     const [pizzaSize, setPizzaSize] = useState<PizzaSize>('small')
@@ -69,15 +69,23 @@ function MenuItemDetails({ item }: MenuItemDetailsProps) {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <Ingredients item={item} />
+                    <div className="space-y-4">
+                        <img
+                            src={image}
+                            alt={`${name} image`}
+                            className="max-h-60 w-full object-cover"
+                        />
 
-                    <p>{description}</p>
+                        <Ingredients item={item} />
 
-                    <SelectPizzaSize
-                        item={item}
-                        pizzaSize={pizzaSize}
-                        setPizzaSize={setPizzaSize}
-                    />
+                        <p>{description}</p>
+
+                        <SelectPizzaSize
+                            item={item}
+                            pizzaSize={pizzaSize}
+                            setPizzaSize={setPizzaSize}
+                        />
+                    </div>
                 </Modal.Body>
 
                 <Modal.Footer>

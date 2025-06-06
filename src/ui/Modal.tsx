@@ -86,7 +86,10 @@ function Window({ children, name }: WindowProps) {
 
     return createPortal(
         <div className="overlay flex items-center justify-center">
-            <div ref={ref} className="max-w-md bg-stone-700">
+            <div
+                ref={ref}
+                className="flex max-h-[80vh] max-w-md flex-col divide-y divide-stone-600 rounded-lg bg-stone-700"
+            >
                 <header className="flex items-center px-4 py-4 sm:px-6">
                     {header}
                     <button onClick={close} className="ml-auto">
@@ -94,7 +97,11 @@ function Window({ children, name }: WindowProps) {
                     </button>
                 </header>
 
-                {body && <div className="px-4 py-4 sm:px-6">{body}</div>}
+                {body && (
+                    <div className="flex-grow overflow-y-auto px-4 py-4 sm:px-6">
+                        {body}
+                    </div>
+                )}
 
                 {footer && (
                     <footer className="px-4 py-4 sm:px-6">{footer}</footer>
