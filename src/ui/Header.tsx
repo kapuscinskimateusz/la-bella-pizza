@@ -1,20 +1,21 @@
 import { Link } from 'react-router'
 
-import AppNav from './AppNav'
-import Username from '../features/user/Username'
+import Logo from './Logo'
+import Navigation from './Navigation'
+import Username from '@/features/user/Username'
 
 function Header() {
     return (
-        <header className="relative flex items-center justify-between border-b border-stone-900 bg-red-600 px-4 py-3 uppercase sm:px-6">
-            <Link to="/" className="tracking-widest">
-                La Bella Pizza
+        <header className="relative flex h-12 items-center justify-between border-b border-red-700 bg-red-600 px-4 sm:px-6">
+            <Link to="/">
+                <Logo />
             </Link>
 
-            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <AppNav />
-            </span>
+            <div className="sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+                <Navigation />
+            </div>
 
-            <Username />
+            <Username className="hidden uppercase sm:block" />
         </header>
     )
 }

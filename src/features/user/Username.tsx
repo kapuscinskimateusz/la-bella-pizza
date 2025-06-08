@@ -1,12 +1,17 @@
 import { useSelector } from 'react-redux'
+
 import { getUsername } from './userSlice'
 
-function Username() {
+interface UsernameProps {
+    className?: string
+}
+
+function Username({ className = '' }: UsernameProps) {
     const username = useSelector(getUsername)
 
     if (!username) return null
 
-    return <p>{username}</p>
+    return <p className={className}>{username}</p>
 }
 
 export default Username

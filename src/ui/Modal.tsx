@@ -8,10 +8,10 @@ import {
     type ButtonHTMLAttributes,
 } from 'react'
 import { createPortal } from 'react-dom'
-import { X } from 'lucide-react'
 
 import { useOutsideClick } from '../hooks/useOutsideClick'
 import { findChildByType } from '../utils/helpers'
+import CloseButton from './CloseButton'
 
 interface ContextDefaultValue {
     openName: string
@@ -92,9 +92,7 @@ function Window({ children, name }: WindowProps) {
             >
                 <header className="flex items-center px-4 py-4 sm:px-6">
                     {header}
-                    <button onClick={close} className="ml-auto">
-                        <X />
-                    </button>
+                    <CloseButton onClick={close} className="ml-auto" />
                 </header>
 
                 {body && (

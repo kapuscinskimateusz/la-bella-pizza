@@ -6,7 +6,17 @@ export default {
             sans: 'Roboto Mono, monospace',
         },
 
-        extend: {},
+        extend: {
+            animation: {
+                slide: 'slide 300ms',
+            },
+            keyframes: {
+                slide: {
+                    '0%': { transform: 'translateX(100%)' },
+                    '100%': { transform: 'translateX(0)' },
+                },
+            },
+        },
     },
     plugins: [],
 }
