@@ -18,7 +18,7 @@ const sortByOptions: Option<SortValue>[] = [
 
 function MenuListOperations() {
     return (
-        <div className="flex items-center justify-between">
+        <div className="space-y-2 sm:flex sm:items-center sm:justify-between sm:space-y-0">
             <Filter filterField="category" options={filterOptions} />
 
             <SortBy options={sortByOptions} />

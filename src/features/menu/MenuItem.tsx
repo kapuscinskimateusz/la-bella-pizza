@@ -14,14 +14,14 @@ function MenuItem({ item }: MenuItemProps) {
     const tags = isPizza(item) ? item.tags : []
 
     return (
-        <li className="flex gap-4 py-2">
+        <li className="flex items-center gap-4 py-2 sm:items-stretch">
             <img
                 src={image}
                 alt={name}
-                className={`aspect-square h-24 object-cover ${soldOut ? 'opacity-70 grayscale' : ''}`}
+                className={`aspect-square h-20 object-cover sm:h-24 ${soldOut ? 'opacity-70 grayscale' : ''}`}
             />
 
-            <div className="flex flex-grow flex-col pt-0.5">
+            <div className="flex flex-grow flex-col sm:pt-0.5">
                 <p className="font-medium">
                     {name}{' '}
                     {tags.includes('vegetarian') && (
@@ -32,7 +32,7 @@ function MenuItem({ item }: MenuItemProps) {
 
                 <Ingredients item={item} />
 
-                <div className="mt-auto flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between sm:mt-auto">
                     <MenuItemPrice item={item} />
 
                     {!soldOut && <MenuItemDetails item={item} />}

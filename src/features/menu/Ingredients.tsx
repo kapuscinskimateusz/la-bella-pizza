@@ -9,7 +9,7 @@ function Ingredients({ item }: IngredientsProps) {
     if (!isPizza(item)) return null
 
     return (
-        <p className="text-sm capitalize italic text-stone-400">
+        <p className="text-xs capitalize italic text-stone-400 sm:text-sm">
             {item.ingredients.join(', ')}
         </p>
     )

@@ -24,7 +24,7 @@ function Menu() {
     const sortedMenu = sortMenu(filteredMenu, sortValue)
 
     return (
-        <div className="space-y-4 pt-2">
+        <div className="mt-4 space-y-2">
             <MenuListOperations />
 
             <ul className="divide-y divide-stone-700">

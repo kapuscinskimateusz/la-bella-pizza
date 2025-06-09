@@ -1,7 +1,6 @@
 import { useSearchParams } from 'react-router'
 
 import type { Option } from '../types/ui'
-import ButtonGroup from './ButtonGroup'
 import Button from './Button'
 
 interface FilterProps {
@@ -19,13 +18,18 @@ function Filter({ filterField, options }: FilterProps) {
     }
 
     return (
-        <ButtonGroup size="small">
+        <div className="grid grid-cols-3 gap-4">
             {options.map(({ label, value }) => (
-                <Button key={value} onClick={() => handleClick(value)}>
+                <Button
+                    key={value}
+                    variant="secondary"
+                    size="small"
+                    onClick={() => handleClick(value)}
+                >
                     {label}
                 </Button>
             ))}
-        </ButtonGroup>
+        </div>
     )
 }
 
